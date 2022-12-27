@@ -1,0 +1,142 @@
+<html>
+<head>
+	<title>James R York</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body class = "blur">
+  <div class="modal" style="display:none;">
+    <div class="modal-content">
+      <div>
+        <h1>Welcome</h1>
+        <p>
+          Welcome to my website. I hope you take a look around around<br>
+          and learn more about me. Besides my passion of Computer<br>
+          Engineering I also have many other hobbies for you to discover.<br><br>
+          ~~ Click anywhere to continue ~~
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <nav>
+      <div class="logo">
+        <img src="img/logo.png">
+      </div>
+      <div class="nav-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Experiences</a></li>
+        <li><a href="#">Hobbies</a></li>
+      </div>
+    </nav>
+    <div class="button-message">
+      <div class="message" style="display: none;">Thats all the Quick Facts!<br>Click these tabs find out more!</div>
+    </div>
+    <div class="information">
+      <div class = "overlay"></div>
+      <img src="img/mainimg.png" class="mainimg">
+      <div id="circle">
+        <div class="key_points one">
+          <div>
+            <h1>Who am I?</h1>
+            <p>
+              Age: 21<br>
+              Major: Computer Engineering<br>
+              School: UCCS
+            </p>
+          </div>
+        </div>
+        <div class="key_points two">
+          <div>
+            <h1>Leadership</h1>
+            <p>
+              Eagle Scout: Lead 35+ Peers<br>
+              AFROTC: Tracked info of 200+ Cadets<br>
+              Tennis: Lead team as Captain and Treasurer
+            </p>
+          </div>
+        </div>
+        <div class="key_points three">
+          <div>
+            <h1>Skills</h1>
+            <p>Insert third useful info</p>
+          </div>
+        </div>
+        <div class="key_points four">
+          <div>
+            <h1>Programming Languages</h1>
+            <p>Proficient:   C, Java, C++, Python, C#<br>
+              Intermediate: Javascript, HTML, CSS, Matlab<br>
+              Beginner:     Ruby, PHP
+            </p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="controls">
+      <img src="img/arrow.png" id="upBtn">
+      <h1>Quick Facts</h1>
+      <img src="img/arrow.png" id="dnBtn">
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  var modal = document.querySelector(".modal");
+  var body = document.querySelector("body");
+  modal.style.display = "block";
+  body.classList.add("blur");
+
+
+  // Make the modal disappear upon clicking anywhere on the screen
+  modal.addEventListener("click", function() {
+    modal.style.display = "none";
+    body.classList.remove("blur");
+  });
+
+  setTimeout(function() {
+    modal.style.display = "none";
+    body.classList.remove("blur");
+  }, 3000);
+});
+
+    var circle = document.getElementById("circle");
+    var upBtn = document.getElementById("upBtn");
+    var downBtn = document.getElementById("dnBtn");
+
+    var rotateValue = circle.style.transform;
+    var rotateSum;
+
+    var buttonCount = 0;
+    var messageFlag = 0;
+
+    upBtn.onclick = function(){
+      rotateSum = rotateValue + "rotate(-90deg)";
+      circle.style.transform = rotateSum;
+      rotateValue = rotateSum;
+      buttonCount = buttonCount + 1;
+      if(buttonCount === 3 && messageFlag === 0){
+        document.querySelector('.message').style.display = 'block';
+        messageFlag = 1;
+      } else {
+        document.querySelector('.message').style.display = 'none';
+      }
+    }
+    dnBtn.onclick = function(){
+      rotateSum = rotateValue + "rotate(90deg)";
+      circle.style.transform = rotateSum;
+      rotateValue = rotateSum;
+      buttonCount = buttonCount - 1;
+      if(buttonCount === -3 && messageFlag === 0){
+        document.querySelector('.message').style.display = 'block';
+        messageFlag = 1;
+      } else {
+        document.querySelector('.message').style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>
