@@ -1,3 +1,8 @@
+:root{
+  --left-px-overview: 500px;
+  --left-main-img: 30%;
+  --left-circle: 0%;
+}
 *{
   margin:0;
   padding: 0;
@@ -69,7 +74,7 @@ nav{
   height: 1000px;
   position: absolute;
   top: 0%;
-  left: 0%;
+  left: var(--left-circle);
   border-radius: 50%;
   transform: rotate(0deg);
   transition: 0.75s;
@@ -80,7 +85,7 @@ nav{
 .key_points{ 
   position: absolute;
   display: flex;
-  color: #fff;
+  color: #C0C9D1;
 }
 .key_points  div{
   margin-left: 30px;
@@ -111,9 +116,10 @@ nav{
   height: 500px;
   position: absolute;
   top: 50%;
-  left: 30%;
+  left: var(--left-main-img);
   transform: translateY(-50%);
   z-index: 1;
+  transition: 0.3s;
 }
 .controls{
   position: absolute;
@@ -133,6 +139,7 @@ nav{
 }
 .controls img:hover{
   opacity: 0.8;
+  /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);*/
 }
 .controls img#dnBtn{
   transform: rotate(180deg);
@@ -140,13 +147,14 @@ nav{
 .overlay{
   width: 0;
   height: 0;
-  border-top: 500px solid #FFF;
-  border-right: 500px solid transparent;
-  border-bottom: 500px solid #fff;
-  border-left: 500px solid #fff;
-  position: absolute;
+  border-top: 500px solid #C0C9D1;
+  border-right: var(--left-px-overview) solid transparent;
+  border-bottom: 500px solid #C0C9D1;
+  border-left: var(--left-px-overview) solid #C0C9D1;
+  position: flex;
   left: 0;
   top: 0;
+  transition: 0.5s;
 }
 .modal {
   position: fixed;
@@ -171,4 +179,32 @@ nav{
   margin: 0 auto;
   text-align: center;
   /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);*/
+}
+
+@media screen and (max-width: 1400px){
+  :root{
+    --left-px-overview: 400px;
+    --left-main-img: 20%;
+    --left-circle: -10%;
+  }
+}
+@media screen and (max-width: 1250px){
+  :root{
+    --left-px-overview: 300px;
+    --left-main-img: 10%;
+    --left-circle: -25%;
+  }
+}
+@media screen and (max-width: 1000px){
+  :root{
+    --left-px-overview: 200px;
+    --left-main-img: 5%;
+    --left-circle: -50%;
+  }
+}
+
+@media screen and (max-width: 850px){
+  .show-desktop{
+    display: none;
+  }
 }
