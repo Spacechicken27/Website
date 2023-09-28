@@ -43,3 +43,8 @@ body{
     background: linear-gradient(to right, #20fc03, #2c16f5);
     text-transform: uppercase;
 }
+
+.webGL {
+    align-items: center;
+    justify-content: center;
+}
