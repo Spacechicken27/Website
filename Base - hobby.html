@@ -1,0 +1,141 @@
+<html>
+<head>
+	<title>James R York</title>
+	<link rel="stylesheet" href="base-hobby-style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="main">
+    <nav>
+      <div class="logo">
+        <img src="img/logo.png">
+      </div>
+      <div class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="hobbies.html">Hobbies</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </div>
+    </nav>
+
+    <div class="information">
+      
+      <div class="slider">
+        <div class="images">
+            <input type="radio" name="slide" id="img1" checked>
+            <input type="radio" name="slide" id="img2">
+            <input type="radio" name="slide" id="img3">
+            <input type="radio" name="slide" id="img4">
+
+            <img src="./hobbies/tennisimg/1.jpg" class="m1" alt="img1">
+            <img src="./hobbies/tennisimg/2.jpg" class="m2" alt="img2">
+            <img src="./hobbies/tennisimg/3.jpg" class="m3" alt="img3">
+            <img src="./hobbies/tennisimg/4.jpg" class="m4" alt="img4">
+        </div>
+        <div class="dots">
+            <label for="img1"></label>
+            <label for="img2"></label>
+            <label for="img3"></label>
+            <label for="img4"></label>
+        </div>
+      </div>
+      <div class="controls">
+        <img src="img/arrow.png" id="upBtn">
+        <img src="img/arrow.png" id="dnBtn">
+      </div>
+    </div>
+    
+    
+  </div>
+  
+
+  <script>
+    var upBtn = document.getElementById("upBtn");
+    var downBtn = document.getElementById("dnBtn");
+  
+    var buttonCount = 0;
+    //alert("The value of color 1 is: " + rs.getPropertyValue('--ket_points_1_color'));
+  
+    upBtn.onclick = function(){
+      rotateSum = rotateValue + "rotate(-90deg)";
+      circle.style.transform = rotateSum;
+      rotateValue = rotateSum;
+      if (buttonCount !== 3){
+        buttonCount = buttonCount + 1;
+      } else {
+        buttonCount = 0;
+      }
+  
+      if(buttonCount === 0){
+        document.querySelector('.img1').style.display = 'block';
+        document.querySelector('.img2').style.display = 'none';
+        document.querySelector('.img3').style.display = 'none';
+        document.querySelector('.img4').style.display = 'none';
+  
+      } else if (buttonCount === 1){
+        document.querySelector('.img1').style.display = 'none';
+        document.querySelector('.img2').style.display = 'block';
+        document.querySelector('.img3').style.display = 'none';
+        document.querySelector('.img4').style.display = 'none';
+  
+      } else if (buttonCount === 2){
+        document.querySelector('.img1').style.display = 'none';
+        document.querySelector('.img2').style.display = 'none';
+        document.querySelector('.img3').style.display = 'block';
+        document.querySelector('.img4').style.display = 'none';
+  
+      } else if(buttonCount === 3){
+        document.querySelector('.img1').style.display = 'none';
+        document.querySelector('.img2').style.display = 'none';
+        document.querySelector('.img3').style.display = 'none';
+        document.querySelector('.img4').style.display = 'block';
+        
+      } 
+    }
+  
+    dnBtn.onclick = function(){
+          rotateSum = rotateValue + "rotate(-90deg)";
+      circle.style.transform = rotateSum;
+      rotateValue = rotateSum;
+      if (buttonCount !== 0){
+        buttonCount = buttonCount - 1;
+      } else {
+        buttonCount = 3;
+      }
+  
+      if(buttonCount === 0){
+        document.querySelector('.img1').style.display = 'block';
+        document.querySelector('.img2').style.display = 'none';
+        document.querySelector('.img3').style.display = 'none';
+        document.querySelector('.img4').style.display = 'none';
+  
+      } else if (buttonCount === 1){
+        document.querySelector('.img1').style.display = 'none';
+        document.querySelector('.img2').style.display = 'block';
+        document.querySelector('.img3').style.display = 'none';
+        document.querySelector('.img4').style.display = 'none';
+  
+      } else if (buttonCount === 2){
+        document.querySelector('.img1').style.display = 'none';
+        document.querySelector('.img2').style.display = 'none';
+        document.querySelector('.img3').style.display = 'block';
+        document.querySelector('.img4').style.display = 'none';
+  
+      } else if(buttonCount === 3){
+        document.querySelector('.img1').style.display = 'none';
+        document.querySelector('.img2').style.display = 'none';
+        document.querySelector('.img3').style.display = 'none';
+        document.querySelector('.img4').style.display = 'block';
+        
+      } 
+    }
+  
+  
+  
+  </script>
+
+  
+
+</body>
+</html>

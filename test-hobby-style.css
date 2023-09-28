@@ -1,0 +1,120 @@
+:root{
+
+}
+*{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav{
+    width: 80%;
+    position: sticky;
+    margin: 20px auto;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+  }
+  .logo{
+    flex-basis: 20%;
+  }
+  .logo img{
+    width: 250px;
+  
+  }
+  .nav-links{
+    flex: 1;
+    text-align: right;
+  }
+  .nav-links li:hover{
+    background-color: #20fc03;
+    border-radius: 50px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: 0.2s;
+  }
+  .nav-links li{
+    display: inline-block;
+    padding: 10px;
+    margin: 0 10px;
+  }
+  .nav-links li a{
+    color: #fff;
+    text-decoration: none;
+  }
+
+body{
+    background: linear-gradient(to right, #20fc03, #2c16f5);
+    text-transform: uppercase;
+}
+h1{
+    text-align: center;
+}
+h3{
+    margin: 5px;
+}
+.hobby-box{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+    grid-gap: 1rem;
+    padding: 1rem 80px;
+
+}
+
+.hobby{
+    display: grid;
+    grid-template-areas:
+        "title title"
+        "img   desc ";
+        
+    grid-template-columns: 1fr 2fr;
+    gap: 10px 10px;
+    background: #353b48;
+    width: 500px;
+    margin: 60px auto;
+    color: #fff;
+    padding: 11px;
+    text-decoration:none;
+    box-shadow: 0 14px 28px rgba(0,0,0, 0.25), 0 10px 10px rgba(0,0,0,0.22);
+    transition: all 0.3s ease-in-out;/* add transition property for smooth effect */
+}
+
+.hobby img {
+    grid-area: img;
+}
+
+.hobby h1 {
+    grid-area: title;
+}
+
+.hobby p {
+    grid-area: desc;
+    display:flex;
+    align-content: left;
+}
+
+.hobby:hover{
+    box-shadow: 5px 19px 32px rgba(0,0,0, 0.69), 0 15px 15px rgba(0,0,0,0.2);
+    /*box-shadow: none;*/
+    cursor: pointer;
+}
+
+.hobby:active{
+    transform: scale(0.95); /* decrease size on click */
+    box-shadow: none; /* remove box-shadow on click */
+}
+
+@media screen and (max-width: 1650px){
+    .hobby-box{
+        grid-template-columns: repeat(2,1fr);
+        padding: 2rem 50px;
+    }
+}
+@media screen and (max-width: 1050px){
+    .hobby-box{
+        grid-template-columns: repeat(1,1fr);
+        padding: 2rem 50px;
+    }
+}

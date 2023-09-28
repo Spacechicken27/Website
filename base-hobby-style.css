@@ -1,0 +1,133 @@
+* {
+    list-style: none;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #20fc03, #2c16f5);
+}
+
+nav{
+    width: 80%;
+    position: sticky;
+    margin: 20px auto;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+  }
+  .logo{
+    flex-basis: 20%;
+  }
+  .logo img{
+    width: 250px;
+  
+  }
+  .nav-links{
+    flex: 1;
+    text-align: right;
+  }
+  .nav-links li:hover{
+    background-color: #20fc03;
+    border-radius: 50px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: 0.2s;
+  }
+  .nav-links li{
+    display: inline-block;
+    padding: 10px;
+    margin: 0 10px;
+  }
+  .nav-links li a{
+    color: #fff;
+    text-decoration: none;
+  }
+
+.information{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.controls{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+  .controls h1{
+    margin: 15px 0;
+    color: #fff;
+  }
+  .controls img{
+    width:100px;
+    margin: 100%;
+    cursor:pointer;
+    opacity: 1;
+  }
+  .controls img:hover{
+    opacity: 0.8;
+    /*box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);*/
+  }
+  .controls img#dnBtn{
+    transform: rotate(90deg);
+  }
+  .controls img#upBtn{
+    transform: rotate(270deg);
+  }
+
+
+
+.slider {
+    position: relative;
+    width: 60%;
+    overflow: hidden;
+}
+.images {
+    display: flex;
+    width: 100%;
+}
+.images img {
+    height: 400px;
+    width: 100%;
+    transition: all 0.25s ease;
+}
+.images input {
+    display: none;
+}
+.dots {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+}
+.dots label {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: solid #fff 3px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    margin: 5px;
+}
+
+.dots label:hover{
+    background: #fff;
+}
+
+#img1:checked ~ .m1 {
+    margin-left: 0;
+}
+#img2:checked ~ .m2 {
+    margin-left: -100%;
+}
+#img3:checked ~ .m3 {
+    margin-left: -200%;
+}
+#img4:checked ~ .m4 {
+    margin-left: -300%;
+}
