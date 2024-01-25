@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>James R York</title>
+  <link rel="stylesheet" href="A-Z-style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <div class="main">
+    <nav>
+      <div class="logo">
+        <img src="img/logo.png" alt="Logo">
+      </div>
+      <div class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="experience.html">Experience</a></li>
+        <li><a href="hobbies.html">Hobbies</a></li>
+        <li><a href="A-Z.html">A-Z</a></li>
+      </div>
+    </nav>
+
+    <div class="information">
+      <div class="info-section">
+        <h1>James & Kennedy</h1>
+        <div id="timer">
+          Dating for: 
+          <div class="time-unit"><span id="days"></span> days,</div>
+          <div class="time-unit"><span id="hours"></span> hrs,</div>
+          <div class="time-unit"><span id="minutes"></span> min,</div>
+          <div class="time-unit"><span id="seconds"></span> sec</div>
+        </div>
+        <div id="anniversary-timer"> 
+          Time till <span id="anniversary-duration"></span>: 
+          <div class="time-unit"><span id="anniversary-days"></span> days,</div>
+          <div class="time-unit"><span id="anniversary-hours"></span> hrs,</div>
+          <div class="time-unit"><span id="anniversary-minutes"></span> min,</div>
+          <div class="time-unit"><span id="anniversary-seconds"></span> sec</div>
+        </div>
+      
+        <div class="progress-bar">
+          <svg>
+            <circle cx="70" cy="70" r="70"></circle>
+            <circle cx="70" cy="70" r="70" id="progress"></circle>
+          </svg>
+          <div id="progress-text">0%</div>
+        </div>
+      </div>
+    
+      <div class="dating-a-z">
+        <!-- Date cards will be generated here -->
+      </div>
+    </div>
+    
+    
+  </div>
+
+  <script>
+    const dates = [
+      { letter: 'A', imgSrc: 'img/dating/a/a.png', activity: 'Arcade', complete: 'N' },
+      { letter: 'B', imgSrc: 'img/dating/b/b.png', activity: 'Beach', complete: 'Y' },
+      { letter: 'C', imgSrc: 'img/dating/c/c.png', activity: 'Camping', complete: 'N' },
+      { letter: 'D', imgSrc: 'img/dating/d/d.png', activity: 'Dinner', complete: 'Y' },
+      { letter: 'E', imgSrc: 'img/dating/e/e.png', activity: 'Escape Room', complete: 'N' },
+      { letter: 'F', imgSrc: 'img/dating/f/f.png', activity: 'Fishing', complete: 'N' },
+      { letter: 'G', imgSrc: 'img/dating/g/g.png', activity: 'Go-Karting', complete: 'N' },
+      { letter: 'H', imgSrc: 'img/dating/h/h.png', activity: 'Hiking', complete: 'Y' },
+      { letter: 'I', imgSrc: 'img/dating/i/i.png', activity: 'Ice Skating', complete: 'N' },
+      { letter: 'J', imgSrc: 'img/dating/j/j.png', activity: 'Jet Skiing', complete: 'Y' },
+      { letter: 'K', imgSrc: 'img/dating/k/k.png', activity: 'Karaoke', complete: 'N' },
+      { letter: 'L', imgSrc: 'img/dating/l/l.png', activity: 'Lazer Tag', complete: 'N' },
+      { letter: 'M', imgSrc: 'img/dating/m/m.png', activity: 'Movie Marathon', complete: 'N' },
+      { letter: 'N', imgSrc: 'img/dating/n/n.png', activity: 'Nightlife', complete: 'N' },
+      { letter: 'O', imgSrc: 'img/dating/o/o.png', activity: 'Origami', complete: 'N' },
+      { letter: 'P', imgSrc: 'img/dating/p/p.png', activity: 'Painting/Pottery', complete: 'N' },
+      { letter: 'Q', imgSrc: 'img/dating/q/q.png', activity: 'Quiz Night', complete: 'N' },
+      { letter: 'R', imgSrc: 'img/dating/r/r.png', activity: 'Rock Climbing', complete: 'N' },
+      { letter: 'S', imgSrc: 'img/dating/s/s.png', activity: 'Skiing', complete: 'Y' },
+      { letter: 'T', imgSrc: 'img/dating/t/t.png', activity: 'Tennis', complete: 'Y' },
+      { letter: 'U', imgSrc: 'img/dating/u/u.png', activity: 'Unplugged', complete: 'N' },
+      { letter: 'V', imgSrc: 'img/dating/v/v.png', activity: 'Volunteering', complete: 'N' },
+      { letter: 'W', imgSrc: 'img/dating/w/w.png', activity: 'Water Park', complete: 'N' },
+      { letter: 'X', imgSrc: 'img/dating/x/x.png', activity: 'Xenophilia', complete: 'N' },
+      { letter: 'Y', imgSrc: 'img/dating/y/y.png', activity: 'Yoga Class', complete: 'N' },
+      { letter: 'Z', imgSrc: 'img/dating/z/z.png', activity: 'Zoo', complete: 'N' }
+    ];
+
+    function generateDateCards() {
+      const container = document.querySelector('.dating-a-z');
+      container.innerHTML = ''; // Clear existing content
+      dates.forEach(date => {
+        container.innerHTML += `
+          <div class="date-card" id="date${date.letter}">
+            <img src="${date.imgSrc}" onerror="this.onerror=null; this.src='img/dating/default/default.png'" style="${date.imgSrc ? '' : 'display: none;'}">
+            <span>${date.activity}</span>
+          </div>
+        `;
+      });
+    }
+    // Timer
+    const startDate = new Date('March 30, 2023 11:00:00').getTime();
+    function updateTimer() {
+      const now = new Date().getTime();
+      const diff = now - startDate;
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('days').innerText = days;
+      document.getElementById('hours').innerText = hours;
+      document.getElementById('minutes').innerText = minutes;
+      document.getElementById('seconds').innerText = seconds;
+    }
+
+    // Progress Bar
+    function updateProgressBar() {
+      const totalDates = dates.length; //
+      const completedDates = dates.filter(date => date.complete === 'Y').length;
+      const progress = (completedDates / totalDates) * 100;
+
+      const progressCircle = document.getElementById('progress');
+      const offset = 440 - (progress / 100) * 440;
+      progressCircle.style.strokeDashoffset = offset;
+
+      document.getElementById('progress-text').innerText = `${Math.round(progress)}%`;
+    }
+
+    function calculateAnniversaryDuration(startDate, endDate) {
+      let totalMonths = (endDate.getFullYear() - startDate.getFullYear()) * 12;
+      totalMonths -= startDate.getMonth();
+      totalMonths += endDate.getMonth();
+      
+      const years = Math.floor(totalMonths / 12);
+      const months = totalMonths % 12;
+
+      return { years, months };
+    }
+
+    function getNextMonthlyAnniversary(startDate) {
+      const now = new Date();
+      let nextAnniversary = new Date(startDate);
+
+      while (nextAnniversary <= now) {
+          nextAnniversary.setMonth(nextAnniversary.getMonth() + 1);
+      }
+
+      return nextAnniversary;
+    }
+
+    function updateMonthlyAnniversaryTimer() {
+      const startDate = new Date('April 27, 2023 00:00:00');
+      const nextAnniversary = getNextMonthlyAnniversary(startDate);
+      const now = new Date();
+      const diff = nextAnniversary - now;
+
+      const duration = calculateAnniversaryDuration(startDate, nextAnniversary);
+
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+      const anniversaryText = duration.years > 0 
+          ? `${duration.years} year${duration.years > 1 ? 's' : ''} ${duration.months} month${duration.months !== 1 ? 's' : ''}`
+          : `${duration.months} month${duration.months !== 1 ? 's' : ''}`;
+
+      document.getElementById('anniversary-duration').innerText = anniversaryText;
+      document.getElementById('anniversary-days').innerText = days;
+      document.getElementById('anniversary-hours').innerText = hours;
+      document.getElementById('anniversary-minutes').innerText = minutes;
+      document.getElementById('anniversary-seconds').innerText = seconds;
+    }
+
+    // Initialize
+    generateDateCards();
+    updateTimer();
+    updateProgressBar();
+    setInterval(updateMonthlyAnniversaryTimer, 1000);
+    setInterval(updateTimer, 100);;
+
+  </script>
+</body>
+</html>

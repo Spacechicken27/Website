@@ -1,0 +1,151 @@
+*{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav{
+    width: 80%;
+    position: sticky;
+    margin: 20px auto;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+  }
+  .logo{
+    flex-basis: 20%;
+  }
+  .logo img{
+    width: 250px;
+  
+  }
+  .nav-links{
+    flex: 1;
+    text-align: right;
+  }
+  .nav-links li:hover{
+    background-color: #20fc03;
+    border-radius: 50px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: 0.2s;
+  }
+  .nav-links li{
+    display: inline-block;
+    padding: 10px;
+    margin: 0 10px;
+  }
+  .nav-links li a{
+    color: #fff;
+    text-decoration: none;
+  }
+
+body{
+    background: linear-gradient(to right, #20fc03, #2c16f5);
+    text-transform: uppercase;
+}
+
+.webGL {
+    align-items: center;
+    justify-content: center;
+}
+
+.dating-a-z {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px;
+}
+
+.info-section {
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: #282b36; /* Same as date-card */
+  border-radius: 15px; /* Same as date-card */
+  padding: 20px; /* Add padding inside the card */
+  margin: 20px auto; /* Centering the card with margin */
+  width: 80%; /* Adjust width as needed */
+  max-width: 800px; /* Adjust maximum width as needed */
+  color: white; /* Text color */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Optional: adds a shadow */
+}
+
+.progress-bar {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  margin: 20px auto;
+  transform: rotate(-90deg);
+}
+
+.progress-bar svg circle {
+  fill: none;
+  stroke-width: 10;
+  stroke-linecap: round;
+}
+
+.progress-bar svg circle:nth-child(1) {
+  stroke: #f0f0f0;
+}
+
+.progress-bar svg circle:nth-child(2) {
+  stroke: #4caf50;
+  stroke-dasharray: 440; /* 2 * π * r */
+  stroke-dashoffset: 440;
+  transition: stroke-dashoffset 0.5s;
+}
+
+#progress-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  font-size: 20px;
+}
+
+
+.date-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* This will push the content to top and bottom */
+  align-items: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 15px;
+  background-color: #282b36;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+.date-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.date-card span {
+  position: absolute;
+  bottom: 0;
+  width: 100%; /* Take full width */
+  text-align: center; /* Center the text */
+  color: white;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  padding: 5px 0; /* Padding at top and bottom */
+  white-space: nowrap; /* Keeps the text in one line */
+  overflow: hidden; /* Hide overflow */
+  text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+  font-size: 1em; /* Start with a base font size */
+}
+
+.date-activity {
+  text-align: center;
+  color: white;
+  font-size: 16px;
+}
+
+.time-unit {
+  display: inline-block;
+  min-width: 70px; /* Adjust the width as needed */
+  text-align: center;
+}
